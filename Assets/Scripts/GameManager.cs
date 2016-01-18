@@ -128,6 +128,16 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+	// public function to add lives
+	public void AddLives(int amount)
+	{
+		// increase score
+		lives+=amount;
+		// update UI
+		UIExtraLives[lives].SetActive(true);
+		refreshGUI();
+	}
+		
 	// public function to add points and update the gui and highscore player prefs accordingly
 	public void AddPoints(int amount)
 	{

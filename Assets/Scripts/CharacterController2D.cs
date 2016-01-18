@@ -276,6 +276,14 @@ public class CharacterController2D : MonoBehaviour {
 			GameManager.gm.AddPoints(amount);
 	}
 
+	public void CollectLife(int amount) {
+		PlaySound(coinSFX);
+		Debug.Log ("yes");
+
+		if (GameManager.gm) // add the lives through the game manager, if it is available
+			GameManager.gm.AddLives(amount);
+	}
+
 	// public function on victory over the level
 	public void Victory() {
 		PlaySound(victorySFX);
