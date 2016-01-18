@@ -123,7 +123,21 @@ public class CharacterController2D : MonoBehaviour {
 			DoJump ();
 			// disblae double jump after jumping since you can only do it once
 			_canDoubleJump = false;
+		} 
+
+		// Super dash in a given direction
+		if (Input.GetButtonDown ("Fire1")) {
+			// reset current vertical motion to 0 prior to jump
+			// add a force in the up direction
+			if (_vx > 0) {
+				_rigidbody.AddForce (new Vector2 (5000f, 0));
+			} else {
+				_rigidbody.AddForce (new Vector2 (-5000f, 0));	
+			}
+			// play the jump sound
+			PlaySound (jumpSFX);
 		}
+
 	
 		// If the player stops jumping mid jump and player is not yet falling
 		// then set the vertical velocity to 0 (he will start to fall from gravity)
